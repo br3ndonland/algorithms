@@ -1,10 +1,10 @@
-# Python template repository
+# Algorithms
 
 Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
 
 ## Description
 
-**Welcome!** This is a template repository for Python projects, engineered for use as a [GitHub template repository](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/).
+This repository was generated from my [GitHub template repository](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/) and contains solutions to common computer science algorithm problems in Python and JavaScript.
 
 ## Repository contents
 
@@ -16,6 +16,7 @@ Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
   - [CONTRIBUTING.md](.github/CONTRIBUTING.md) - detailed instructions for using this repository.
 - [.vscode/settings.json](.vscode/settings.json) - default settings for [VSCode](https://code.visualstudio.com/).
 - [examples/](examples) - code samples that can be used to try out the Python tooling in this repo.
+- [LeetCode/](LeetCode) - Solutions to algorithm problems on [LeetCode](https://leetcode.com/).
 - [.pre-commit-config.yaml](.pre-commit-config.yaml) - configuration file for [pre-commit](https://pre-commit.com/) specifying [Git pre-commit hooks](https://www.git-scm.com/docs/githooks).
 - [Dockerfile](Dockerfile) - example [Dockerfile](https://docs.docker.com/engine/reference/builder/) for running Pipenv in Docker.
 - [LICENSE](LICENSE) - [license](https://choosealicense.com/) file describing how the repository may be legally used.
