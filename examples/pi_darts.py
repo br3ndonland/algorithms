@@ -17,10 +17,13 @@ def pi(inside, total):
     - The ratio of the areas of the circle to the square is Pi/4.
     """
     for i in range(0, total):
+        # Generate [x, y] coordinates
         x2 = r.random() ** 2
         y2 = r.random() ** 2
+        # Increment if coordinates are inside circle
         if m.sqrt(x2 + y2) < 1.0:
             inside += 1
+    # Solve for Pi: inside/total = Pi/4
     pi = (float(inside) / total) * 4
     print(pi)
 
