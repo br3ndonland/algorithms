@@ -19,4 +19,20 @@ const fib = n => {
   return j
 }
 
+/**
+ * ### Fibonacci sequence
+ * @param {number} n Calculate Fibonacci sequence up to this number
+ * @returns {array} Fibonacci sequence
+ * @tutorial
+ * [30 Seconds of Interviews](https://30secondsofinterviews.org/)
+ * > Initialize an empty array of length n _(note: I use `n + 1`)_.
+ * > Use `Array.prototype.reduce()` to add values into the array, using
+ * > the sum of the last two values, except for the first two.
+ */
+const fib_seq = n =>
+  [...Array(n + 1)].reduce(
+    (acc, val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i),
+    []
+  )
 console.log(fib(8))
+console.log(fib_seq(8))
