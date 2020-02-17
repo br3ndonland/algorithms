@@ -2,7 +2,7 @@ import math as m
 import random as r
 
 
-def pi(inside, total):
+def pi(inside: int, total: int) -> float:
     """
     Estimate Pi by throwing darts
     ---
@@ -25,10 +25,10 @@ def pi(inside, total):
             inside += 1
     # Solve for Pi: inside/total = Pi/4
     pi = (float(inside) / total) * 4
-    print(pi)
+    return pi
 
 
 if __name__ == "__main__":
     inside = 0
     total = 10000
-    pi(inside, total)
+    print(pi(inside, total))
