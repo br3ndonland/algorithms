@@ -1,5 +1,6 @@
 # Algorithms
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 ![pre-commit](https://github.com/br3ndonland/algorithms/workflows/pre-commit/badge.svg)
 
@@ -24,6 +25,7 @@ This repository was generated from my [GitHub template repository](https://githu
 - [LeetCode/](LeetCode) - Solutions to algorithm problems on [LeetCode](https://leetcode.com/).
 - [.pre-commit-config.yaml](.pre-commit-config.yaml) - configuration file for [pre-commit](https://pre-commit.com/) specifying [Git pre-commit hooks](https://www.git-scm.com/docs/githooks).
 - [.prettierrc](.prettierrc) - configuration file for [Prettier](https://prettier.io/docs/en/configuration.html).
+-
 - [Dockerfile](Dockerfile) - example [Dockerfile](https://docs.docker.com/engine/reference/builder/) for running Pipenv in Docker.
 - [LICENSE](LICENSE) - [license](https://choosealicense.com/) file describing how the repository may be legally used.
 - [Pipfile](Pipfile) - [Pipenv](https://pipenv.readthedocs.io/) package list
