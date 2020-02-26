@@ -23,6 +23,7 @@ This repository was generated from my [GitHub template repository](https://githu
 - [examples/](examples) - code samples that can be used to try out the Python tooling in this repo.
 - [LeetCode/](LeetCode) - Solutions to algorithm problems on [LeetCode](https://leetcode.com/).
 - [.pre-commit-config.yaml](.pre-commit-config.yaml) - configuration file for [pre-commit](https://pre-commit.com/) specifying [Git pre-commit hooks](https://www.git-scm.com/docs/githooks).
+- [.prettierrc](.prettierrc) - configuration file for [Prettier](https://prettier.io/docs/en/configuration.html).
 - [Dockerfile](Dockerfile) - example [Dockerfile](https://docs.docker.com/engine/reference/builder/) for running Pipenv in Docker.
 - [LICENSE](LICENSE) - [license](https://choosealicense.com/) file describing how the repository may be legally used.
 - [Pipfile](Pipfile) - [Pipenv](https://pipenv.readthedocs.io/) package list
