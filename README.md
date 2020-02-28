@@ -20,12 +20,11 @@ This repository was generated from my [GitHub template repository](https://githu
     - [pre-commit.yml](.github/workflows/pre-commit.yml): [GitHub Actions](https://github.com/features/actions) workflow that runs pre-commit with each pull request or push to the master branch.
   - [CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md): guidelines for behavior when contributing to open-source projects.
   - [CONTRIBUTING.md](.github/CONTRIBUTING.md): detailed instructions for using this repository.
-- [.vscode/settings.json](.vscode/settings.json): default settings for [VSCode](https://code.visualstudio.com/).
 - [examples/](examples): code samples that can be used to try out the Python tooling in this repo.
-- [LeetCode/](LeetCode): Solutions to algorithm problems on [LeetCode](https://leetcode.com/).
+- [LeetCode/](LeetCode): solutions to algorithm problems on [LeetCode](https://leetcode.com/).
+- [tutorials/](tutorials): notes and examples from tutorials.
 - [.pre-commit-config.yaml](.pre-commit-config.yaml): configuration file for [pre-commit](https://pre-commit.com/) specifying [Git pre-commit hooks](https://www.git-scm.com/docs/githooks).
 - [.prettierrc](.prettierrc): configuration file for [Prettier](https://prettier.io/docs/en/configuration.html).
-- [Dockerfile](Dockerfile): example [Dockerfile](https://docs.docker.com/engine/reference/builder/) for running Pipenv in Docker.
 - [LICENSE](LICENSE): [license](https://choosealicense.com/) file describing how the repository may be legally used.
 - [Pipfile](Pipfile): [Pipenv](https://pipenv.readthedocs.io/) package list
 - [README.md](README.md): this file, a concise description of the repository
