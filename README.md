@@ -28,6 +28,7 @@ This repository was generated from my [GitHub template repository](https://githu
 - [LICENSE](LICENSE): [license](https://choosealicense.com/) file describing how the repository may be legally used.
 - [Pipfile](Pipfile): [Pipenv](https://pipenv.readthedocs.io/) package list
 - [README.md](README.md): this file, a concise description of the repository
+- [setup.py](setup.py): this file helps Python understand your project structure and locate files, even if you're not going to publish your project as a Python package on [PyPI](https://pypi.org/). For example, if your tests are in a sub-directory like _test/_, adding _setup.py_ helps pytest locate Python modules to load when running tests. To tell Python to read your _setup.py_ file, simply run `pip install -e .` as described in [quickstart](#quickstart). For more info, see the [`pip install -e` docs](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) and the [pytest docs on good integration practices](https://docs.pytest.org/en/latest/goodpractices.html).
 
 ## Quickstart
 
