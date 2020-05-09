@@ -11,9 +11,10 @@ from typing import Dict, List
 # https://docs.python.org/3/tutorial/datastructures.html#dictionaries
 example_dict: Dict[str, int] = {str(i): i for i in range(10)}
 
-# Generate a list of ten integers with a list comprehension
-list_of_ints: List[int] = [i for i in range(10)]
-
 # Generate the same list from the values in the dict with a list comprehension
 values_from_dict: List[int] = [val for key, val in example_dict.items()]
+
 print(values_from_dict)
+
+# Easier way to get the same result: list comprehension with ten integers
+list_of_ints: List[int] = [i for i in range(10)]
