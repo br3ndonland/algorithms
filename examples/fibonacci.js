@@ -5,7 +5,7 @@
  * @tutorial
  * [WikiBooks](https://en.wikibooks.org/wiki/Algorithm_Implementation/Mathematics/Fibonacci_Number_Program)
  */
-const fib = n => {
+const fib = (n) => {
   var i = 1,
     j = 0,
     k,
@@ -29,7 +29,7 @@ const fib = n => {
  * > Use `Array.prototype.reduce()` to add values into the array, using
  * > the sum of the last two values, except for the first two.
  */
-const fib_seq = n =>
+const fib_seq = (n) =>
   [...Array(n + 1)].reduce(
     (acc, val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i),
     []

@@ -26,12 +26,12 @@ Note:
  * - [MDN - `reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
  * - [Rest](https://github.com/br3ndonland/udacity-google/blob/master/es6/es6-1-syntax.md): must use rest for array, otherwise will be sorted.
  */
-const heightChecker = heights =>
+const heightChecker = (heights) =>
   [...heights]
     .sort((a, b) => a - b)
     .reduce((out, i, j) => (i !== heights[j] ? out + 1 : out), 0)
 
-const heightCheckerFail = heights => {
+const heightCheckerFail = (heights) => {
   out = 0
   for (const i of [...heights]) {
     if (i !== heights.sort()[i]) {

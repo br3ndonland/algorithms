@@ -11,13 +11,13 @@ const mostCommonWord = (paragraph, banned) => {
   const words = paragraph.toLowerCase().split(/[!?',;.\s]+/)
   // Remove banned words
   const wordsNotBanned = words.filter(
-    word => !banned.includes(word) && word.length > 0
+    (word) => !banned.includes(word) && word.length > 0
   )
   // Create a map with each unique word and the number of occurrences
   const wordsMap = new Map(
-    wordsNotBanned.map(word => [
+    wordsNotBanned.map((word) => [
       word,
-      wordsNotBanned.filter(words => words === word).length
+      wordsNotBanned.filter((words) => words === word).length,
     ])
   )
   // Identify the most common non-banned word
