@@ -89,15 +89,27 @@ Repo: [br3ndonland/test3](https://github.com/br3ndonland/test3)
 - Moved Python modules to separate directory, didn't run -> `__init__.py`
 - setup.py: https://docs.pytest.org/en/latest/goodpractices.html, https://github.com/br3ndonland/test3/commit/aa68546fc08edd835e93dff6349914966fb67ec6
 
-### _\_\_init\_\_.py_
+### `__init__.py`
+
+_TODO_
+
+See the [Python 3 docs tutorial on modules](https://docs.python.org/3/tutorial/modules.html), especially the [packages section](https://docs.python.org/3/tutorial/modules.html#packages):
+
+> The `__init__.py` files are required to make Python treat directories containing the file as packages. This prevents directories with a common name, such as string, unintentionally hiding valid modules that occur later on the module search path. In the simplest case, `__init__.py` can just be an empty file, but it can also execute initialization code for the package or set the `__all__` variable, described later.
+
+### _config.py_
 
 _TODO_
 
 ### _conftest.py_
 
-In many ways, `conftest.py` is like `setup.py` for pytest. It helps pytest understand your project structure so that pytest can find Python modules to test.
+In many ways, _conftest.py_ is like _setup.py_ for pytest. It helps pytest understand your project structure so that pytest can find Python modules to test.
 
-If your tests and modules are in separate directories and you don't have `conftest.py`, pytest may throw a `ModuleNotFoundError`. Pytest finds the tests, but the tests can't find the modules they `import` from the root directory. A solution, as explained on [Stack Overflow](https://stackoverflow.com/questions/10253826), is to simply create an empty _conftest.py_ file in the root directory. This seems strange to me.
+If your tests and modules are in separate directories and you don't have _conftest.py_, pytest may throw a `ModuleNotFoundError`. Pytest finds the tests, but the tests can't find the modules they `import` from the root directory. A solution, as explained on [Stack Overflow](https://stackoverflow.com/questions/10253826), is to simply create an empty _conftest.py_ file in the root directory. This seems strange to me.
+
+### _pyproject.toml_
+
+As explained in the README for the Black autoformatter, _pyproject.toml_ can replace _setup.cfg_ and _setup.py_.
 
 ### _setup.cfg_
 
@@ -105,10 +117,13 @@ _TODO_
 
 ### _setup.py_
 
-The `setup.py` [setup configuration file](https://docs.python.org/3/distutils/configfile.html) helps Python understand your project structure. It's mostly used by [`setuptools` ](https://setuptools.readthedocs.io/en/latest/setuptools.html) to distribute Python packages on [PyPI](https://pypi.org/).
+The _setup.py_ [setup configuration file](https://docs.python.org/3/distutils/configfile.html) helps Python understand your project structure. It's mostly used by [`setuptools` ](https://setuptools.readthedocs.io/en/latest/setuptools.html) to distribute Python packages on [PyPI](https://pypi.org/).
 
 For example, if your tests are in a sub-directory like _test/_, adding `setup.py` helps pytest locate Python modules to load when running tests.
 
+To use the _setup.py_ file during local development, simply run `pip install -e .` as described in the [`pip install -e` docs](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) and the [pytest docs on good integration practices](https://docs.pytest.org/en/latest/goodpractices.html).
+
+Poetry projects don't need a separate _setup.py_ because it's managed automatically by Poetry. Attempting to use a separate _setup.py_ file with Poetry may result in errors, as described in [GitHub issue 1279](https://github.com/python-poetry/poetry/issues/1279).
 To use the `setup.py` file during local development, simply run `pip install -e .` as described in the [`pip install -e` docs](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) and the [pytest docs on good integration practices](https://docs.pytest.org/en/latest/goodpractices.html).
 
 Poetry projects don't need a separate `setup.py` because it's managed automatically by Poetry. Attempting to use a separate `setup.py` file with Poetry may result in errors, as described in [GitHub issue 1279](https://github.com/python-poetry/poetry/issues/1279).
