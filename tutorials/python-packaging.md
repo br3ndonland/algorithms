@@ -4,6 +4,17 @@
 
 ### `venv`
 
+## Virtual environments and dependencies
+
+### Pipenv
+
+- **[Pipenv](https://pipenv.readthedocs.io/en/latest/)** was previously used to manage the development virtual environment for this project.
+- **The future of Pipenv is unclear.** It went all of 2019 without a major release, and has many bugs. Jacob Kaplan-Moss (Django co-creator) has commented on how "the lead of Pipenv was someone with a history of not treating his collaborators well," and on the "bugs and rapid API changes" of Pipenv. Many developers are switching to [Poetry](https://python-poetry.org).
+  - [Jacob Kaplan-Moss | Blog 20191111: My Python development environment, 2020 edition](https://jacobian.org/2019/nov/11/python-environment-2020/)
+  - [Telnyx | 20200124 Nick Timkovich: RIP Pipenv](https://medium.com/telnyx-engineering/rip-pipenv-tried-too-hard-do-what-you-need-with-pip-tools-d500edc161d4)
+
+### venv
+
 Python 3 is bundled with the [`venv` module](https://docs.python.org/3/tutorial/venv.html) for creation of virtual environments.
 
 1. **Install and activate Python virtual environment**: The shell commands in the code block below will create a Python virtual environment, activate the virtual environment and display a modified virtual environment prompt
@@ -30,16 +41,11 @@ Python 3 is bundled with the [`venv` module](https://docs.python.org/3/tutorial/
 (venv) path ❯ python app.py
 ```
 
-### Virtualenv
+### virtualenv
 
 [Virtualenv](https://virtualenv.pypa.io/en/latest/) is similar to `venv`, but with additional features.
 
-### Pipenv
-
-- **[Pipenv](https://pipenv.readthedocs.io/en/latest/)** was previously used to manage the development virtual environment for this project.
-- **The future of Pipenv is unclear.** It went all of 2019 without a major release, and has many bugs. Jacob Kaplan-Moss (Django co-creator) has commented on how "the lead of Pipenv was someone with a history of not treating his collaborators well," and on the "bugs and rapid API changes" of Pipenv. Many developers are switching to [Poetry](https://python-poetry.org).
-  - [Jacob Kaplan-Moss | Blog 20191111: My Python development environment, 2020 edition](https://jacobian.org/2019/nov/11/python-environment-2020/)
-  - [Telnyx | 20200124 Nick Timkovich: RIP Pipenv](https://medium.com/telnyx-engineering/rip-pipenv-tried-too-hard-do-what-you-need-with-pip-tools-d500edc161d4)
+## Packaging
 
 ### flit
 
@@ -58,6 +64,10 @@ _TODO_
 - To learn how to use semver syntax, check out the [npm semver calculator](https://semver.npmjs.com/).
 
 #### Packaging
+
+_TODO_
+
+### `setuptools`
 
 _TODO_
 
