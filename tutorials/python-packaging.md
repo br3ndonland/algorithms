@@ -19,6 +19,9 @@
   - [_pyproject.toml_](#pyprojecttoml)
   - [_setup.cfg_](#setupcfg)
   - [_setup.py_](#setuppy)
+- [Talks](#talks)
+  - [PyCon 2015: David Beazley](#pycon-2015-david-beazley)
+  - [PyCon 2019: Russell Keith-Magee](#pycon-2019-russell-keith-magee)
 
 ## Virtual environments and dependencies
 
@@ -140,10 +143,70 @@ For example, if your tests are in a sub-directory like _test/_, adding `setup.py
 To use the _setup.py_ file during local development, simply run `pip install -e .` as described in the [`pip install -e` docs](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) and the [pytest docs on good integration practices](https://docs.pytest.org/en/latest/goodpractices.html).
 
 Poetry projects don't need a separate _setup.py_ because it's managed automatically by Poetry. Attempting to use a separate _setup.py_ file with Poetry may result in errors, as described in [GitHub issue 1279](https://github.com/python-poetry/poetry/issues/1279).
-To use the `setup.py` file during local development, simply run `pip install -e .` as described in the [`pip install -e` docs](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) and the [pytest docs on good integration practices](https://docs.pytest.org/en/latest/goodpractices.html).
 
-Poetry projects don't need a separate `setup.py` because it's managed automatically by Poetry. Attempting to use a separate `setup.py` file with Poetry may result in errors, as described in [GitHub issue 1279](https://github.com/python-poetry/poetry/issues/1279).
+## Talks
 
-### _pyproject.toml_
+### PyCon 2015: David Beazley
 
-As explained in the README for the Black autoformatter, _pyproject.toml_ can replace _setup.cfg_ and _setup.py_.
+[David Beazley](http://dabeaz.com/index.html) talk [Modules and Packages: Live and Let Die](https://youtu.be/bGYZEKstQuQ). See [slides](http://dabeaz.com/modulepackage/ModulePackage.pdf) and [GitHub repo](https://github.com/dabeaz/modulepackage).
+
+- David opens with a Hieronymus Bosch painting, [The Garden of Earthly Delights](https://en.wikipedia.org/wiki/The_Garden_of_Earthly_Delights).
+- Slide 18: each module is isolated. what happens in a module stays in a module.
+- 22: generally try not to use `from module import *`. Also see slide 53: you can define `__all__` to control behavior of `from module import *` within `__init__.py`.
+- 25: file names lowercase, leading underscore for private
+- There's an import cache. Imports only happen once. Don't manually reload modules.
+- [33](https://youtu.be/bGYZEKstQuQ?t=892) part 2: packages
+- It's easier to split up code into modules, but difficult to manage all the imports from those modules.
+- 37: modules are easy, packages are hard (introduce complexity).
+- [40](https://youtu.be/bGYZEKstQuQ?t=1189): explicit relative imports
+  - This is the syntax Constructure uses
+- 42: PEP 8 recommends absolute imports and discourages relative imports, but the Python standard library doesn't even follow that. It does permit explicit relative imports when useful.
+- [48](https://youtu.be/bGYZEKstQuQ?t=1431) `__init__.py`: "What are you supposed to do in those files?" Seriously. I like the idea of combining imports in the `__init__.py`.
+- _spam/`__init__.py`_
+  ```py
+  from .foo import Foo
+  from .bar import Bar
+  ```
+- Then in a module
+
+  ```py
+  import spam
+
+  f = spam.Foo()
+  b = spam.Bar()
+  ```
+
+- Case study: the collections "module", which is actually a package.
+- 53: control exports with `__all__`
+- 60: `__init__` "connotes initialization, not implementation": don't simply put all your code into `__init__`.
+- [64](https://youtu.be/bGYZEKstQuQ?t=2489): Part 3 - `__main__`
+- 67: `python3 -m pip` is useful, helps ensure the correct version of Python is used.
+- 68: `__main__.py` is an automatic entry point. If `__main__.py` is present, Python can execute the entire directory automatically with `python3 dirname`. Python can even do this for zip files. You can also append the zip archive directly to a shebang line inside a file, add `chmod +x`, and it will run. David admitted this blew his mind, even after many years of Python programming. See PEP 441.
+
+  ```sh
+  python3 -m zipfile -c spam.zip spam/*.py
+  rm -rf spam
+  python3 spam.zip
+  ```
+
+- [74](https://youtu.be/bGYZEKstQuQ?t=3104): Part 4 - `sys.path`
+  - This is the "hell" part of the Hieronymus Bosch painting
+  - "Amost every tricky problem concerning modules/packages is related to `sys.path`"
+  - `sys.path` is a list of strings
+- 90: Path construction - _site.py_
+- [92](https://youtu.be/bGYZEKstQuQ?t=3922): venv and virtual environments
+  - venv makes a new directory with a _pyvenv.cfg_ file and a fresh Python install
+  - There are also `.pth` files. I've never interacted with these files.
+- 104: package managers (`easy_install`, pip, conda, etc) - "Do I want to discuss further? Nope."
+- [105](https://youtu.be/bGYZEKstQuQ?t=4567): Part 5 - namespace packages
+- [106](https://youtu.be/bGYZEKstQuQ?t=4591): "Die `__init__.py` Die!"
+  - You can omit `__init__.py`, but then you end up with a namespace package.
+  - 1:24:30: "You sort of realize that you're entering, kind of, this world of madness."
+- 112: applications - namespace packages could be used for frameworks that want to allow user-customized plugin directories.
+- [113](https://youtu.be/bGYZEKstQuQ?t=5190): practical workshop portion - building a user-extensible framwork called "Telly"
+
+### PyCon 2019: Russell Keith-Magee
+
+[PyCon 2019 keynote: Russell Keith-Magee](https://youtu.be/ftP5BQh1-YM?t=2033)
+
+- Found via the [Python Bytes podcast episode 138](https://pythonbytes.fm/episodes/show/138/will-pyoxidizer-weld-shut-one-of-python-s-major-gaps) 2019-07-08
