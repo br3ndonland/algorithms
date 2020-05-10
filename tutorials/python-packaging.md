@@ -1,8 +1,24 @@
 # Python packaging
 
-## Virtual environments, dependencies, and packaging
+## Table of Contents <!-- omit in toc -->
 
-### `venv`
+- [Virtual environments and dependencies](#virtual-environments-and-dependencies)
+  - [Pipenv](#pipenv)
+  - [venv](#venv)
+  - [virtualenv](#virtualenv)
+- [Packaging](#packaging)
+  - [flit](#flit)
+  - [Poetry](#poetry)
+  - [`setuptools`](#setuptools)
+  - [tox](#tox)
+- [Confusing configuration files](#confusing-configuration-files)
+  - [Background](#background)
+  - [`__init__.py`](#initpy)
+  - [_config.py_](#configpy)
+  - [_conftest.py_](#conftestpy)
+  - [_pyproject.toml_](#pyprojecttoml)
+  - [_setup.cfg_](#setupcfg)
+  - [_setup.py_](#setuppy)
 
 ## Virtual environments and dependencies
 
