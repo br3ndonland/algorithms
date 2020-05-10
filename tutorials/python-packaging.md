@@ -77,6 +77,18 @@ _TODO_
 
 ## Confusing configuration files
 
+### Background
+
+_TODO_: write up notes in actual sentences
+
+I got interested in this topic during a Boston Python User Group Meetup event.
+
+Repo: [br3ndonland/test3](https://github.com/br3ndonland/test3)
+
+- Moved tests to tests directory, didn't run -> conftest.py
+- Moved Python modules to separate directory, didn't run -> `__init__.py`
+- setup.py: https://docs.pytest.org/en/latest/goodpractices.html, https://github.com/br3ndonland/test3/commit/aa68546fc08edd835e93dff6349914966fb67ec6
+
 ### _\_\_init\_\_.py_
 
 _TODO_
