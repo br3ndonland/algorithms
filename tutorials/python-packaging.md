@@ -241,6 +241,46 @@ Poetry projects don't need a separate _setup.py_ because it's managed automatica
 
 ### PyCon 2019: Russell Keith-Magee
 
-[PyCon 2019 keynote: Russell Keith-Magee](https://youtu.be/ftP5BQh1-YM?t=2033)
+[PyCon 2019 keynote: Russell Keith-Magee](https://youtu.be/ftP5BQh1-YM?t=1242)
 
-- Found via the [Python Bytes podcast episode 138](https://pythonbytes.fm/episodes/show/138/will-pyoxidizer-weld-shut-one-of-python-s-major-gaps) 2019-07-08
+Found via the [Python Bytes podcast episode 138](https://pythonbytes.fm/episodes/show/138/will-pyoxidizer-weld-shut-one-of-python-s-major-gaps) (2019-07-08)
+
+#### Intro
+
+- Russell has been on the Django core team since 2006. He's a data engineer at Survata.
+- Russell opens with a map of the places he's spoken. He lives in Perth, Western Australia, sort of like the Cleveland of Australia. "It's a fine city, but not usually the one that jumps to mind."
+- Black swans were discovered in Perth. Before that, all swans were thought to be white.
+- **Black swan event** ([0:28:12](https://youtu.be/ftP5BQh1-YM?t=1692)): "A surprise event that has major effect but is easily explained (in hindsight)." The rise of the personal computer was a black swan event.
+
+#### Python's black swans
+
+1. **Everyone uses a laptop** ([0:29:55](https://youtu.be/ftP5BQh1-YM?t=1796)): Not anymore. Python hasn't adapted to mobile devices.
+2. **Python can stay on the server** ([0:31:25](https://youtu.be/ftP5BQh1-YM?t=1885)): web apps aren't just server-side like Django anymore. Increasingly, code is being run in the browser.
+3. **Installation is a solved problem** ([0:32:30](https://youtu.be/ftP5BQh1-YM?t=1950)): "I have been a user of Python for twenty years, and in that entire time, I don't think there's been a period where I would have described Python's packaging story as stable." See [xkcd 1987](https://xkcd.com/1987/).
+4. **Code distribution doesn't matter** ([0:33:52](https://youtu.be/ftP5BQh1-YM?t=2032)): "Python hasn't ever had a consistent story for how I give my code to someone else, especially if that someone else isn't a developer and just wants to use my application."
+
+"Despite all this, I am optimistic." Russell has been working on BeeWare projects, which enable developers to write Python and deploy everywhere.
+
+#### Lessons from the America's Cup sailing races
+
+1. **It's not enough to just follow the rules. You have to ensure the competition is fair.**
+2. **Watch out for Black Swans**: the Australian America's Cup team created a "winged keel" that drove innovation. _What is today's black swan for the web?_ WASM (Web Assembly).
+3. **The team matters**: sailing is a team sport, and so is software.
+4. **Money makes things happen.** Expertise costs money, because experts expect to get paid. Open-source software is an anomaly, but free-time unpaid contributions aren't the only way to get things done. "If you need volunteers, you are immediately constraining the amount of time and effort that anyone can put into the job... If you pay people for their time, they are much more likely to be able to maintain their attention on a problem... and the work gets done" (applause). Example: PyPI MOSS grant, "an unfortunately rare example."
+
+#### Strategies for open-source sustainability
+
+- **Research and development matters.** Bell Labs gave us UNIX. XEROX PARC gave us many other innovations. Python needs R&D also. Book: Elinor Ostrom: Governing the Commons
+- **Open-source presents mental health challenges. Depression and burnout are major problems.**
+  - Vignette: [Charles Yelton O'Connor](https://en.wikipedia.org/wiki/C._Y._O'Connor) improved water infrastructure in Western Australia, but was criticized, and he took his own life.
+  - Russell has experienced depression and burnout working on Django.
+
+#### Five calls to action
+
+1. **Start thinking about black swans.**
+2. **Improve resourcing of maintenance and R&D efforts.**
+3. **Value contributors and their contributions.**
+4. **Get out your wallets.**
+5. **Contribute.**
+
+**Where do you see Python in ten years?**
