@@ -150,60 +150,94 @@ Poetry projects don't need a separate _setup.py_ because it's managed automatica
 
 [David Beazley](http://dabeaz.com/index.html) talk [Modules and Packages: Live and Let Die](https://youtu.be/bGYZEKstQuQ). See [slides](http://dabeaz.com/modulepackage/ModulePackage.pdf) and [GitHub repo](https://github.com/dabeaz/modulepackage).
 
-- David opens with a Hieronymus Bosch painting, [The Garden of Earthly Delights](https://en.wikipedia.org/wiki/The_Garden_of_Earthly_Delights).
-- Slide 18: each module is isolated. what happens in a module stays in a module.
-- 22: generally try not to use `from module import *`. Also see slide 53: you can define `__all__` to control behavior of `from module import *` within `__init__.py`.
-- 25: file names lowercase, leading underscore for private
-- There's an import cache. Imports only happen once. Don't manually reload modules.
+- Intro
+  - David's speaking cadence is choppy and sporadic, especially at higher speeds.
+  - David opens with a Hieronymus Bosch painting, [The Garden of Earthly Delights](https://en.wikipedia.org/wiki/The_Garden_of_Earthly_Delights). I think it was appropriate for the madness in this presentation.
+  - Slide 18: each module is isolated. what happens in a module stays in a module.
+  - 22: generally try not to use `from module import *`. Also see slide 53: you can define `__all__` to control behavior of `from module import *` within `__init__.py`.
+  - 25: file names lowercase, leading underscore for private
+  - There's an import cache. Imports only happen once. Don't manually reload modules.
 - [33](https://youtu.be/bGYZEKstQuQ?t=892) part 2: packages
-- It's easier to split up code into modules, but difficult to manage all the imports from those modules.
-- 37: modules are easy, packages are hard (introduce complexity).
-- [40](https://youtu.be/bGYZEKstQuQ?t=1189): explicit relative imports
-  - This is the syntax Constructure uses
-- 42: PEP 8 recommends absolute imports and discourages relative imports, but the Python standard library doesn't even follow that. It does permit explicit relative imports when useful.
-- [48](https://youtu.be/bGYZEKstQuQ?t=1431) `__init__.py`: "What are you supposed to do in those files?" Seriously. I like the idea of combining imports in the `__init__.py`.
-- _spam/`__init__.py`_
-  ```py
-  from .foo import Foo
-  from .bar import Bar
-  ```
-- Then in a module
 
-  ```py
-  import spam
+  - It's easier to split up code into modules, but difficult to manage all the imports from those modules.
+  - 37: modules are easy, packages are hard (introduce complexity).
+  - [40](https://youtu.be/bGYZEKstQuQ?t=1189): explicit relative imports
+  - 42: PEP 8 recommends absolute imports and discourages relative imports, but the Python standard library doesn't even follow that. It does permit explicit relative imports when useful.
+  - [48](https://youtu.be/bGYZEKstQuQ?t=1431) `__init__.py`: "What are you supposed to do in those files?" Seriously. I like the idea of combining imports in the `__init__.py`.
+  - _spam/`__init__.py`_
+    ```py
+    from .foo import Foo
+    from .bar import Bar
+    ```
+  - Then in a module
 
-  f = spam.Foo()
-  b = spam.Bar()
-  ```
+    ```py
+    import spam
 
-- Case study: the collections "module", which is actually a package.
-- 53: control exports with `__all__`
-- 60: `__init__` "connotes initialization, not implementation": don't simply put all your code into `__init__`.
+    f = spam.Foo()
+    b = spam.Bar()
+    ```
+
+  - Case study: the collections "module", which is actually a package.
+  - 53: control exports with `__all__`
+  - 60: `__init__` "connotes initialization, not implementation": don't simply put all your code into `__init__`.
+
 - [64](https://youtu.be/bGYZEKstQuQ?t=2489): Part 3 - `__main__`
-- 67: `python3 -m pip` is useful, helps ensure the correct version of Python is used.
-- 68: `__main__.py` is an automatic entry point. If `__main__.py` is present, Python can execute the entire directory automatically with `python3 dirname`. Python can even do this for zip files. You can also append the zip archive directly to a shebang line inside a file, add `chmod +x`, and it will run. David admitted this blew his mind, even after many years of Python programming. See PEP 441.
 
-  ```sh
-  python3 -m zipfile -c spam.zip spam/*.py
-  rm -rf spam
-  python3 spam.zip
-  ```
+  - 67: `python3 -m pip` is useful, helps ensure the correct version of Python is used.
+  - 68: `__main__.py` is an automatic entry point. If `__main__.py` is present, Python can execute the entire directory automatically with `python3 dirname`. Python can even do this for zip files. You can also prepend a Python shebang onto a zip archive, add `chmod +x`, and it will run. David admitted this blew his mind, even after many years of Python programming. See [PEP 441](https://www.python.org/dev/peps/pep-0441/).
+
+    ```sh
+    python3 -m zipfile -c spam.zip spam/*.py
+    rm -rf spam
+    python3 spam.zip
+    ```
 
 - [74](https://youtu.be/bGYZEKstQuQ?t=3104): Part 4 - `sys.path`
   - This is the "hell" part of the Hieronymus Bosch painting
   - "Amost every tricky problem concerning modules/packages is related to `sys.path`"
   - `sys.path` is a list of strings
-- 90: Path construction - _site.py_
-- [92](https://youtu.be/bGYZEKstQuQ?t=3922): venv and virtual environments
-  - venv makes a new directory with a _pyvenv.cfg_ file and a fresh Python install
-  - There are also `.pth` files. I've never interacted with these files.
-- 104: package managers (`easy_install`, pip, conda, etc) - "Do I want to discuss further? Nope."
+  - 90: Path construction - _site.py_
+  - [92](https://youtu.be/bGYZEKstQuQ?t=3922): venv and virtual environments
+    - venv makes a new directory with a _pyvenv.cfg_ file and a fresh Python install
+    - There are also `.pth` files. I've never interacted with these files.
+  - 104: package managers (`easy_install`, pip, conda, etc) - "Do I want to discuss further? Nope."
 - [105](https://youtu.be/bGYZEKstQuQ?t=4567): Part 5 - namespace packages
-- [106](https://youtu.be/bGYZEKstQuQ?t=4591): "Die `__init__.py` Die!"
-  - You can omit `__init__.py`, but then you end up with a namespace package.
-  - 1:24:30: "You sort of realize that you're entering, kind of, this world of madness."
-- 112: applications - namespace packages could be used for frameworks that want to allow user-customized plugin directories.
-- [113](https://youtu.be/bGYZEKstQuQ?t=5190): practical workshop portion - building a user-extensible framwork called "Telly"
+  - [106](https://youtu.be/bGYZEKstQuQ?t=4591): "Die `__init__.py` Die!"
+    - You can omit `__init__.py`, but then you end up with a namespace package.
+    - 1:24:30: "You sort of realize that you're entering, kind of, this world of madness."
+  - 112: applications - namespace packages could be used for frameworks that want to allow user-customized plugin directories.
+  - [113](https://youtu.be/bGYZEKstQuQ?t=5190): building a user-extensible framework called "Telly"
+    - Plugins are added as sub-directories without separate `__init__.py` files
+    - They do some `__path__` hacking in the top-level `__init__.py` to collect the plugins
+    - **I don't like the approach of using namespace modules for user plugins. A better approach would be building plugins as Python packages.** Packages can then be added to the dependency list in _requirements.txt_ or _pyproject.toml_, and imported in the standard way when needed.
+    - It's easiest and most reproducible to work with Python's standard library module and import system. **The problem is, while it's easier to _work with_ Python modules as packages, it's complicated to _produce_ the packages. This is why user-friendly packaging tools like Poetry are important.** If we make it easier to turn Python code into packages, we solve many problems.
+- [122](https://youtu.be/bGYZEKstQuQ?t=5848): Part 6 - the module
+
+  - We're getting into the "crazy hacks part of the tutorial"
+  - The `import` statement opens and executes a Python file
+  - 129: _.pyc_ Pycache files are compiled Python bytecode. Examining compiled Python bytecode:
+
+    ```py
+    c = compile(code, "blah.py", "exec")
+    import dis
+    dis.dis(c)
+    ```
+
+- [154](https://youtu.be/bGYZEKstQuQ?t=7668): Part 7 - the module reloaded
+- [168](https://youtu.be/bGYZEKstQuQ?t=8210): Part 8 - import hooks
+  - There's some more info here about `sys.path` and `sys.meta_path`.
+  - The `ModuleSpec` contains information about how to load the module.
+  - 183: "Modern module loading technique is better." Duh.
+  - 184: David proposes the idea of lazy imports, in which modules are executed when they are needed instead of right away
+- [199](https://youtu.be/bGYZEKstQuQ?t=9960): Part 9 - path hooks
+  - Revisiting `sys.path` yet again
+  - `sys.path_hooks` is an object that helps locate modules
+  - Example: importing from URLs
+- Final comments
+  - "A good policy: Keep it as simple as possible"
+  - "It's good to understand what's possible... In case you have to debug it"
+  - David teaches Python classes in Chicago
 
 ### PyCon 2019: Russell Keith-Magee
 
