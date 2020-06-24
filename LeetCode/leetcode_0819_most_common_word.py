@@ -44,14 +44,17 @@ class Solution:
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
         """Most common word
         -------------------
-        - type paragraph: str
-        - type banned: List[str]
-        - rtype: str
+        Given a paragraph and a list of banned words, return the most frequent word
+        that is not in the list of banned words.
         """
         # Split paragraph into list on spaces or punctuation and transform to lowercase
-        words: List[str] = re.split(r"[!?',;.\s]+", paragraph.lower())
         # Remove banned words: either lambda or list comprehension will work
-        words = list(filter(lambda word: word not in banned and len(word) > 0, words))
+        words: List[str] = list(
+            filter(
+                lambda word: word not in banned and len(word) > 0,
+                re.split(r"[!?',;.\s]+", paragraph.lower()),
+            )
+        )
         # Use dict comprehension to create dict and count occurrences of each word
         # https://docs.python.org/3/tutorial/datastructures.html#dictionaries
         freq: Dict[str, int] = {word: words.count(word) for word in words}
