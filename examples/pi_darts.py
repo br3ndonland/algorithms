@@ -2,7 +2,7 @@ import math as m
 import random as r
 
 
-def pi(inside: int, total: int) -> float:
+def pi(total: int) -> float:
     """
     Estimate Pi by throwing darts
     ---
@@ -16,7 +16,9 @@ def pi(inside: int, total: int) -> float:
     - The square has sides of length 2, and therefore area 4
     - The ratio of the areas of the circle to the square is Pi/4.
     """
-    for i in range(0, total):
+    # Start the number of coordinates inside the circle at 0
+    inside: float = 0
+    for i in range(total):
         # Generate [x, y] coordinates
         x2 = r.random() ** 2
         y2 = r.random() ** 2
@@ -24,11 +26,9 @@ def pi(inside: int, total: int) -> float:
         if m.sqrt(x2 + y2) < 1.0:
             inside += 1
     # Solve for Pi: inside/total = Pi/4
-    pi = (float(inside) / total) * 4
+    pi = (inside / total) * 4
     return pi
 
 
 if __name__ == "__main__":
-    inside = 0
-    total = 10000
-    print(pi(inside, total))
+    print(pi(10000))
