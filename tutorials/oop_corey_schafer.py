@@ -73,9 +73,7 @@ class Employee:
     @staticmethod
     def weekday(day):
         """Determine if a given date is a weekday."""
-        if day.weekday() == 5 or day.weekday() == 6:
-            return False
-        return True
+        return day.weekday() != 5 and day.weekday() != 6
 
 
 class Developer(Employee):
@@ -102,10 +100,7 @@ class Manager(Employee):
     def __init__(self, first, last, pay, employees=None):
         """Set employee attributes for the Manager subclass."""
         super().__init__(first, last, pay)
-        if employees is None:
-            self.employees = []
-        else:
-            self.employees = employees
+        self.employees = [] if employees is None else employees
 
     def add_emp(self, emp):
         """Add an employee to the manager's employees list."""

@@ -33,11 +33,7 @@ class Solution:
         - type heights: List[int]
         - rtype: int
         """
-        out = 0
-        for i, j in zip(heights, sorted(heights)):
-            if i != j:
-                out += 1
-        return out
+        return sum(1 for i, j in zip(heights, sorted(heights)) if i != j)
 
 
 if __name__ == "__main__":

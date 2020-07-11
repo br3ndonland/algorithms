@@ -32,9 +32,7 @@ class Solution:
         while any(match in s for match in matches):
             for match in matches:
                 s = s.replace(match, "")
-        if len(s):
-            return False
-        return True
+        return not len(s)
 
 
 if __name__ == "__main__":
@@ -51,7 +49,7 @@ if __name__ == "__main__":
         "()()()([])": True,
         "(([]){})": True,
     }
-    for test in tests.keys():
+    for test in tests:
         print(
             f"Test: {test}\n",
             f"Expected: {tests[test]}\n",

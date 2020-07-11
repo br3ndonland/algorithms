@@ -32,9 +32,7 @@ class Solution:
         while any(match in s for match in matches):
             for match in matches:
                 s = s.replace(match, "")
-        if len(s):
-            return False
-        return True
+        return not len(s)
 
 
 class GeneratorSolution:
@@ -53,9 +51,7 @@ class GeneratorSolution:
         remover = self.removeMatches(s, matches)
         for i in remover:
             misses.append(i)
-        if len(misses) and ("", "") not in misses:
-            return False
-        return True
+        return not len(misses) or ("", "") in misses
 
     def removeMatches(self, s: str, matches: List[str]) -> Generator:
         """Remove matching characters from a string.
@@ -171,7 +167,7 @@ class CommSolution2:
         for char in s:
             if char in dict.values():
                 stack.append(char)
-            elif char in dict.keys():
+            elif char in dict:
                 if stack == [] or dict[char] != stack.pop():
                     return False
             else:
@@ -193,7 +189,7 @@ if __name__ == "__main__":
         "()()()([])": True,
         "(([]){})": True,
     }
-    for test in tests.keys():
+    for test in tests:
         print(
             f"Test: {test}\n",
             f"Expected: {tests[test]}\n",
