@@ -18,13 +18,14 @@
  * - [freeCodeCamp](https://medium.freecodecamp.org/a-software-engineering-survival-guide-fe3eafb47166)
  * - [freeCodeCamp](https://medium.freecodecamp.org/coding-interviews-for-dummies-5e048933b82b)
  * - [Stack Overflow](https://stackoverflow.com/a/17623252)
+ * - [Tests](https://github.com/betamore/fswd-lab-1)
  */
 const fizzBuzz = () => {
   for (let i = 1; i <= 100; i++) {
     let out = ``
     if (i % 3 === 0) out += `Fizz`
     if (i % 5 === 0) out += `Buzz`
-    console.log(out || i)
+    return out || i
   }
 }
 fizzBuzz()

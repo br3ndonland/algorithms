@@ -11,7 +11,7 @@ from typing import Dict, List
 # https://docs.python.org/3/tutorial/datastructures.html#dictionaries
 example_dict: Dict[str, int] = {str(i): i for i in range(10)}
 
-# Generate the same list from the values in the dict with a list comprehension
+# Generate a list from the values in the dict with a list comprehension
 values_from_dict: List[int] = [val for key, val in example_dict.items()]
 
 print(values_from_dict)

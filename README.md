@@ -8,25 +8,21 @@ Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
 
 ## Description
 
-This repository was generated from my [GitHub template repository](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/) and contains solutions to common computer science algorithm problems in Python and JavaScript.
+This repository contains solutions to common computer science algorithm problems in Python and JavaScript. It's also a useful source of default tooling for my projects.
 
-## Repository contents
+## Directory structure
 
-- [.github/](.github): configuration files for [GitHub](https://github.com/).
-  - [ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE)
-    - [bug_report.md](.github/ISSUE_TEMPLATE/bug_report.md): template for filing a bug report issue on GitHub.
-    - [feature_request.md](.github/ISSUE_TEMPLATE/feature_request.md): template for filing a feature request issue on GitHub.
-  - [workflows/](.github/workflows)
-    - [pre-commit.yml](.github/workflows/pre-commit.yml): [GitHub Actions](https://github.com/features/actions) workflow that runs pre-commit with each pull request or push to the master branch.
-  - [CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md): guidelines for behavior when contributing to open-source projects.
-  - [CONTRIBUTING.md](.github/CONTRIBUTING.md): detailed instructions for using this repository.
-- [examples/](examples): code samples that can be used to try out the Python tooling in this repo.
-- [LeetCode/](LeetCode): solutions to algorithm problems on [LeetCode](https://leetcode.com/).
-- [tutorials/](tutorials): notes and examples from tutorials.
-- [.pre-commit-config.yaml](.pre-commit-config.yaml): configuration file for [pre-commit](https://pre-commit.com/) specifying [Git pre-commit hooks](https://www.git-scm.com/docs/githooks).
-- [.prettierrc](.prettierrc): configuration file for [Prettier](https://prettier.io/docs/en/configuration.html).
-- [LICENSE](LICENSE): [license](https://choosealicense.com/) file describing how the repository may be legally used.
-- [README.md](README.md): this file, a concise description of the repository
+You'll notice that there's a subdirectory named _src_. The convention in the Python community is to put application code either in _repo/appname_, or in _repo/src/appname_. Typically the _repo/appname_ directory contains the source code used to build the Python package _appname_. Some examples:
+
+- [FastAPI](https://github.com/tiangolo/fastapi) uses _fastapi/fastapi_
+- [Flask](https://github.com/pallets/flask) uses _flask/src/flask_
+- [Pandas](https://github.com/pandas-dev/pandas) uses _pandas/pandas_
+- [Requests](https://github.com/psf/requests) uses _requests/requests_
+- The Python dependency management and packaging tool [Poetry](https://python-poetry.org/) offers either _repo/appname_ or _repo/src/appname_.
+
+JavaScript typically uses _repo/src_.
+
+This project contains both Python and JavaScript code, so _algorithms/src_ is used as a directory for both. The _algorithms/src/algorythms_ directory contains Python code, and the _algorithms/src/ecmarithms_ directory contains JavaScript. Tests for both languages are in the corresponding directories in _algorithms/tests_.
 
 ## Further information
 

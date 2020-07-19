@@ -13,7 +13,7 @@
   - [tox](#tox)
 - [Confusing configuration files](#confusing-configuration-files)
   - [Background](#background)
-  - [`__init__.py`](#initpy)
+  - [`__init__.py`](#__init__py)
   - [_config.py_](#configpy)
   - [_conftest.py_](#conftestpy)
   - [_pyproject.toml_](#pyprojecttoml)
@@ -128,7 +128,7 @@ If your tests and modules are in separate directories and you don't have _confte
 
 ### _pyproject.toml_
 
-As explained in the README for the Black autoformatter, _pyproject.toml_ can replace _setup.cfg_ and _setup.py_.
+As explained in the README for the Black autoformatter, _pyproject.toml_ can replace _setup.cfg_ and _setup.py_. See [Brett Cannon Blog 20200331: What the heck is pyproject.toml?](https://snarky.ca/what-the-heck-is-pyproject-toml/).
 
 ### _setup.cfg_
 
