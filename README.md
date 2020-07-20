@@ -3,6 +3,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 ![hooks](https://github.com/br3ndonland/algorithms/workflows/hooks/badge.svg)
+![tests](https://github.com/br3ndonland/algorithms/workflows/tests/badge.svg)
 
 Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
 
