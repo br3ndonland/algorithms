@@ -1,6 +1,6 @@
 [tool.isort]
 profile = "black"
-src_paths = ["src/algorythms", "tests/algorythms"]
+src_paths = ["algorythms"]
 
 [tool.poetry]
 name = "algorythms"
@@ -9,7 +9,7 @@ description = "Solutions to common computer science algorithms written in Python
 authors = ["Brendon Smith <br3ndonland@protonmail.com>"]
 license = "MIT"
 homepage = "https://github.com/br3ndonland/algorithms"
-readme = "README.md"
+readme = "../README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
