@@ -5,7 +5,7 @@ src_paths = ["algorythms"]
 [tool.poetry]
 name = "algorythms"
 version = "0.1.0"
-description = "Solutions to common computer science algorithms written in Python"
+description = "Miscellaneous curiosities from the world of computer programming"
 authors = ["Brendon Smith <br3ndonland@protonmail.com>"]
 license = "MIT"
 homepage = "https://github.com/br3ndonland/algorithms"
