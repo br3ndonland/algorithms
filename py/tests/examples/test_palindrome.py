@@ -1,6 +1,6 @@
-import pytest
+import pytest  # type: ignore
 
-from algorythms.examples import palindrome
+from algorythms.examples import palindrome  # type: ignore
 
 
 @pytest.mark.parametrize(
