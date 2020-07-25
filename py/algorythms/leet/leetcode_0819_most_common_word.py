@@ -41,7 +41,8 @@ from typing import Dict, List
 
 
 class Solution:
-    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+    @staticmethod
+    def mostCommonWord(paragraph: str, banned: List[str]) -> str:
         """Most common word
         -------------------
         Given a paragraph and a list of banned words, return the most frequent word
@@ -68,4 +69,4 @@ if __name__ == "__main__":
     banned = ["hit"]
     test1 = "a, a, a, a, b,b,b,c, c"
     test1_banned = ["a"]
-    print(f"Most common word: {Solution().mostCommonWord(paragraph, banned)}")
+    print(f"Most common word: {Solution.mostCommonWord(paragraph, banned)}")
