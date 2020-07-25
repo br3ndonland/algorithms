@@ -20,14 +20,9 @@ from typing import Dict
 
 
 class Solution:
-    def isValid(self, s: str) -> bool:
-        """Check that open characters in a string are properly closed.
-        ---
-        Arguments:
-        - s: str. A string of characters to check.
-        Returns:
-        - Boolean
-        """
+    @staticmethod
+    def isValid(s: str) -> bool:
+        """Check that open characters in a string are properly closed."""
         matches = ["()", "[]", "{}"]
         while any(match in s for match in matches):
             for match in matches:
@@ -53,5 +48,5 @@ if __name__ == "__main__":
         print(
             f"Test: {test}\n",
             f"Expected: {tests[test]}\n",
-            f"Result: {Solution().isValid(test)}\n",
+            f"Result: {Solution.isValid(test)}\n",
         )
