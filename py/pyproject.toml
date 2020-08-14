@@ -1,6 +1,6 @@
 [tool.isort]
 profile = "black"
-src_paths = ["algorythms"]
+src_paths = ["algorythms", "tests"]
 
 [tool.poetry]
 name = "algorythms"
