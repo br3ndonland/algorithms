@@ -9,7 +9,7 @@ def get_modules(dirpath: Path = Path(PurePath(__file__).parent)) -> List[str]:
     ---
     https://docs.python.org/3/library/pathlib.html
     """
-    return [file.name[:-3] for file in dirpath.glob("**/*[!__init__].py")]
+    return [PurePath(file).stem for file in dirpath.glob("**/*[!__init__].py")]
 
 
 def import_modules(modules: List[str]) -> List:
