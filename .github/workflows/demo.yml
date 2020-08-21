@@ -3,7 +3,6 @@ name: demo
 on:
   push:
     branches: [demo]
-  pull_request:
   workflow_dispatch:
 
 env:
