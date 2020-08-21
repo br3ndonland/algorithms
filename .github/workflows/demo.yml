@@ -1,0 +1,48 @@
+name: demo
+
+on:
+  push:
+    branches: [demo]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  APP_NAME: "GitHub Actions demo workflow"
+
+jobs:
+  simple:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Verify the workspace context
+        run: echo 'Workspace directory is ${{ github.workspace }}'
+      - name: Run a simple echo command with a pre-set environment variable
+        run: echo 'Hello World, from ${{ env.APP_NAME }}'
+      - name: Set build environment based on Git branch name
+        if: github.ref == 'refs/heads/demo'
+        run: echo ::set-env name=BUILD_ENV::"demo"
+      - name: Run a multi-line shell script block
+        run: |
+          echo "
+          Hello World, from GitHub Actions!
+          Add other actions to build,
+          test, and deploy your project.
+          "
+          if [ "$BUILD_ENV" = "demo" ]; then
+            echo "This is a demo."
+          elif "$BUILD_ENV"; then
+            echo "BUILD_ENV=$BUILD_ENV"
+          else
+            echo "There isn't a BUILD_ENV variable set."
+          fi
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Run a multi-line Python script block
+        shell: python
+        run: |
+          import sys
+
+          version = f"{sys.version_info.major}.{sys.version_info.minor}"
+          print(f"Hello World, from Python {version}!")
