@@ -62,3 +62,27 @@ jobs:
       - name: Run an external Python script
         working-directory: ./.github/workflows
         run: python demo.py
+  matrix:
+    needs: [simple]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-latest, ubuntu-latest, windows-latest]
+        python-version: [3.6, 3.7, 3.8]
+        silly-word: [foo, bar, baz]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Echo a silly word
+        run: echo ${{ matrix.silly-word }}
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run a multi-line Python script block
+        shell: python
+        run: |
+          import os
+          import sys
+
+          version = f"{sys.version_info.major}.{sys.version_info.minor}"
+          print(f"Hello World, from Python {version}, ${{ matrix.os }}, and ${{ matrix.silly-word }}!")
