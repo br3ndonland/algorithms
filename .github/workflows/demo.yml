@@ -19,7 +19,7 @@ jobs:
       - name: Run a simple echo command with a pre-set environment variable
         run: echo 'Hello World, from ${{ env.APP_NAME }}'
       - name: Set build environment based on Git branch name
-        if: github.ref == 'refs/heads/demo'
+        if: github.ref == 'refs/heads/demo' || contains(env.APP_NAME, 'demo')
         run: echo ::set-env name=BUILD_ENV::"demo"
       - name: Use the GitHub Actions format function to provide some details about Spam
         run: |
@@ -32,13 +32,13 @@ jobs:
       - name: Run a multi-line shell script block
         run: |
           echo "
-          Hello World, from GitHub Actions!
+          Hello World, from ${{ env.APP_NAME }}!
           Add other actions to build,
           test, and deploy your project.
           "
-          if [ "$BUILD_ENV" = "demo" ]; then
+          if [ "$BUILD_ENV" = "demo" ] || [ ${{ contains(env.APP_NAME, 'demo') }} ]; then
             echo "This is a demo."
-          elif "$BUILD_ENV"; then
+          elif [ "$BUILD_ENV" ]; then
             echo "BUILD_ENV=$BUILD_ENV"
           else
             echo "There isn't a BUILD_ENV variable set."
@@ -50,7 +50,15 @@ jobs:
       - name: Run a multi-line Python script block
         shell: python
         run: |
+          import os
           import sys
 
           version = f"{sys.version_info.major}.{sys.version_info.minor}"
           print(f"Hello World, from Python {version} and ${{ env.APP_NAME }}!")
+          print(f"Did you know that {os.getenv('SPAM_STRING', 'there is a SPAM_STRING')}?")
+      - name: Run an external shell script
+        working-directory: ./.github/workflows
+        run: . demo.sh
+      - name: Run an external Python script
+        working-directory: ./.github/workflows
+        run: python demo.py
