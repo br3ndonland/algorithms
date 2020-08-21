@@ -22,6 +22,14 @@ jobs:
       - name: Set build environment based on Git branch name
         if: github.ref == 'refs/heads/demo'
         run: echo ::set-env name=BUILD_ENV::"demo"
+      - name: Use the GitHub Actions format function to provide some details about Spam
+        run: |
+          echo ::set-env name=SPAM_STRING::${{ format(
+            'Spam is short for {0} and is made from {1} by {2}',
+            'spiced ham',
+            'pork shoulder',
+            'Hormel'
+          ) }}
       - name: Run a multi-line shell script block
         run: |
           echo "
@@ -36,6 +44,7 @@ jobs:
           else
             echo "There isn't a BUILD_ENV variable set."
           fi
+          echo "Did you know that $SPAM_STRING?"
       - uses: actions/setup-python@v2
         with:
           python-version: 3.8
@@ -45,4 +54,4 @@ jobs:
           import sys
 
           version = f"{sys.version_info.major}.{sys.version_info.minor}"
-          print(f"Hello World, from Python {version}!")
+          print(f"Hello World, from Python {version} and ${{ env.APP_NAME }}!")
