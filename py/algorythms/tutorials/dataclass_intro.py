@@ -22,17 +22,18 @@ class InventoryItem:
         """
         return self.unit_price * self.quantity_on_hand
 
-    def print_info(self):
+    def show_dataclass_info(self) -> str:
         """Print info about the class to the terminal.
         ---
         """
-        print(
-            f"Sample: {sample.name}\nPrice: {sample.unit_price}",
-            f"\nInventory: {sample.quantity_on_hand}",
-            f"\nTotal value of inventory: {sample.total_value()}",
+        info = (
+            f"Sample: {sample.name}\nPrice: {sample.unit_price}"
+            f"\nInventory: {sample.quantity_on_hand}"
+            f"\nTotal value of inventory: {sample.total_value()}"
         )
+        return info
 
 
 if __name__ == "__main__":
     sample = InventoryItem("Sling Shot", 50.99, 5000)
-    sample.print_info()
+    print(sample.show_dataclass_info())
