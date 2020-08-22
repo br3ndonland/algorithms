@@ -19,6 +19,8 @@ repos:
     rev: v0.782
     hooks:
       - id: mypy
+        files: \.pyi?$
+        args: [--disallow-untyped-defs]
   - repo: https://github.com/prettier/prettier
     rev: 2.0.5
     hooks:
