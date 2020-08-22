@@ -5,11 +5,14 @@ https://realpython.com/instance-class-and-static-methods-demystified/
 I was asked about decorators in a job interview. This tutorial was helpful.
 """
 import math
-from typing import List
+from typing import List, Tuple, Type, TypeVar
+
+T = TypeVar("T", bound="MyClass")
+U = TypeVar("U", bound="Pizza")
 
 
 class MyClass:
-    def method(self):
+    def method(self: T) -> Tuple[str, T]:
         """Class instance method
         ---
         - Class instance methods accept `self` as an argument.
@@ -18,7 +21,7 @@ class MyClass:
         return "instance method called", self
 
     @classmethod
-    def class_method(cls):
+    def class_method(cls: Type[T]) -> Tuple[str, Type[T]]:
         """Class method
         ---
         - `@classmethod` accepts `cls`, but not `self`.
@@ -41,7 +44,7 @@ class MyClass:
 
 class Pizza:
     def __init__(self, ingredients: List[str], radius: int):
-        self.ingredients = list(ingredients)
+        self.ingredients = ingredients
         self.radius = radius
 
     def __repr__(self) -> str:
@@ -56,11 +59,11 @@ class Pizza:
         return self.circle_area(self.radius)
 
     @classmethod
-    def margherita(cls):
+    def margherita(cls: Type[U]) -> U:
         return cls(["mozzarella", "tomatoes"], 6)
 
     @classmethod
-    def prosciutto(cls):
+    def prosciutto(cls: Type[U]) -> U:
         return cls(["mozzarella", "tomatoes", "ham"], 6)
 
     @staticmethod

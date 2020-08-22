@@ -8,7 +8,10 @@ https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc
 Completed code
 """
 import datetime
-from typing import Optional
+from typing import List, Optional, Type, TypeVar
+
+T = TypeVar("T", bound="Employee")
+U = TypeVar("U", bound="Developer")
 
 
 class Employee:
@@ -64,13 +67,13 @@ class Employee:
         return message
 
     @classmethod
-    def set_raise_amount(cls, amount: float) -> float:
+    def set_raise_amount(cls: Type[T], amount: float) -> float:
         """Set the amount of the pay raise."""
         cls.raise_amount = amount
         return amount
 
     @classmethod
-    def from_string(cls, emp_str: str):
+    def from_string(cls: Type[T], emp_str: str) -> T:
         """Parse employee data out of a string."""
         first, last, pay = emp_str.split("-")
         return cls(first, last, int(pay))
@@ -92,7 +95,7 @@ class Developer(Employee):
         self.lang = lang
 
     @classmethod
-    def from_string(cls, emp_str: str):
+    def from_string(cls: Type[U], emp_str: str) -> U:
         """Parse developer data out of a string."""
         first, last, pay, lang = emp_str.split("-")
         return cls(first, last, int(pay), lang)
@@ -102,7 +105,11 @@ class Manager(Employee):
     """Class constructor for managers that inherits the Employee class."""
 
     def __init__(
-        self, first: Optional[str], last: Optional[str], pay: int, employees=None
+        self,
+        first: Optional[str],
+        last: Optional[str],
+        pay: int,
+        employees: List[Employee] = None,
     ):
         """Set employee attributes for the Manager subclass."""
         super().__init__(first, last, pay)
