@@ -25,7 +25,7 @@ from typing import List
 class ListNode:
     """Definition for singly-linked list."""
 
-    def __init__(self, x):
+    def __init__(self, x: List):
         self.val = x
         self.next = None
 
@@ -42,10 +42,10 @@ class Solution:
         if not (l1 and l2):
             return l1 or l2
         l1, l2 = sorted((l1, l2), key=attrgetter("val"))
-        l1.next = self.mergeTwoLists(l1.next, l2)
+        l1.next = self.mergeTwoLists(l1.next, l2)  # type: ignore
         return l1
 
-    def easyMerge(self, l1, l2: List[int]) -> List[int]:
+    def easyMerge(self, l1: List[int], l2: List[int]) -> List[int]:
         """Merge two lists
         ---
         Merging lists in Python is simple! Just add them together.

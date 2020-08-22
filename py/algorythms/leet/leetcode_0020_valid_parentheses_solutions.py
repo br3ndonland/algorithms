@@ -85,7 +85,7 @@ class MyFriendsSolution:
         """
         return self.removeMatching(s)
 
-    def removeMatching(self, s):
+    def removeMatching(self, s: str) -> bool:
         if s.find("()") != -1 or s.find("{}") != -1 or s.find("[]") != -1:
             s = s.replace("()", "").replace("[]", "").replace("{}", "")
             if len(s) == 0:
