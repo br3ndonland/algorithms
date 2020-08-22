@@ -17,8 +17,8 @@ def decorator_function(original_function):
 
 
 @decorator_function
-def display_info(name, age):
-    print(f"display_info ran with arguments {name, age}")
+def display_info(name: str, age: int) -> str:
+    return f"display_info ran with arguments {name, age}"
 
 
 class decorator_class(object):
@@ -31,8 +31,8 @@ class decorator_class(object):
 
 
 @decorator_class
-def display_class(name, age):
-    print(f"display class decorator ran with arguments {name, age}")
+def display_class(name: str, age: int) -> str:
+    return f"display class decorator ran with arguments {name, age}"
 
 
 def my_logger(orig_func):
@@ -60,12 +60,12 @@ def my_timer(orig_func):
 
 @my_logger
 @my_timer
-def display_info_logger_timer(name, age):
+def display_info_logger_timer(name: str, age: int) -> str:
     time.sleep(1)
-    print(f"display_info_logger_timer ran with arguments ({name}, {age})")
+    return f"display_info_logger_timer ran with arguments ({name}, {age})"
 
 
 if __name__ == "__main__":
-    display_info("John", 25)
-    display_class("John", 25)
-    display_info_logger_timer("Tom", 22)
+    print(display_info("John", 25))
+    print(display_class("John", 25))
+    print(display_info_logger_timer("Tom", 22))

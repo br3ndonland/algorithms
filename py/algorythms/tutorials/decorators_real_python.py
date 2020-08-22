@@ -5,6 +5,7 @@ https://realpython.com/instance-class-and-static-methods-demystified/
 I was asked about decorators in a job interview. This tutorial was helpful.
 """
 import math
+from typing import List
 
 
 class MyClass:
@@ -27,7 +28,7 @@ class MyClass:
         return "class method called", cls
 
     @staticmethod
-    def static_method():
+    def static_method() -> str:
         """Static method
         ---
         - `@staticmethod` can't accept `self` or `cls`, but can accept other arguments.
@@ -39,15 +40,15 @@ class MyClass:
 
 
 class Pizza:
-    def __init__(self, ingredients, radius):
+    def __init__(self, ingredients: List[str], radius: int):
         self.ingredients = list(ingredients)
         self.radius = radius
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Pizza({self.radius}, {self.ingredients!r})"
 
     @property
-    def area(self):
+    def area(self) -> float:
         """Calculate the area of the pizza.
         ---
         A medium pizza is 12" in diameter.
@@ -63,11 +64,11 @@ class Pizza:
         return cls(["mozzarella", "tomatoes", "ham"], 6)
 
     @staticmethod
-    def circle_area(r):
+    def circle_area(r: int) -> float:
         return r ** 2 * math.pi
 
 
-def fun_with_methods():
+def fun_with_methods() -> None:
     """Fun with class methods
     ---
     These commands are based on the Real Python REPL examples.

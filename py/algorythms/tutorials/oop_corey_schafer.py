@@ -8,6 +8,7 @@ https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc
 Completed code
 """
 import datetime
+from typing import Optional
 
 
 class Employee:
@@ -19,59 +20,63 @@ class Employee:
     raise_amount = 0.04
     total_emps = 0
 
-    def __init__(self, first, last, pay):
+    def __init__(self, first: Optional[str], last: Optional[str], pay: int):
         """Sets employee attributes."""
         self.first = first
         self.last = last
         self.pay = int(pay)
         Employee.total_emps += 1
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Employee('{self.first}', '{self.last}', {self.pay})"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.fullname} - {self.email}"
 
-    def apply_raise(self):
+    def apply_raise(self) -> int:
         """Calculates the new salary after a pay raise."""
         self.pay = int(self.pay * (1 + self.raise_amount))
         return self.pay
 
     @property
-    def email(self):
+    def email(self) -> str:
         return f"{self.first}.{self.last}@email.com"
 
     @property
-    def fullname(self):
+    def fullname(self) -> str:
         """Constructs employee full name."""
         return f"{self.first} {self.last}"
 
     @fullname.setter
-    def fullname(self, name):
+    def fullname(self, name: str) -> str:
         first, last = name.split(" ")
         self.first = first
         self.last = last
-        print(f"Full name set to {name} with setter method.")
+        return f"Full name set to {name} with setter method."
 
     @fullname.deleter
-    def fullname(self):
-        print(f"Delete name {self.fullname}!")
+    def fullname(self) -> str:
+        old_name = self.fullname
+        message = f"Delete name {old_name}!"
         self.first = None
         self.last = None
+        message += " Deleted!"
+        return message
 
     @classmethod
-    def set_raise_amount(cls, amount):
+    def set_raise_amount(cls, amount: float) -> float:
         """Set the amount of the pay raise."""
         cls.raise_amount = amount
+        return amount
 
     @classmethod
-    def from_string(cls, emp_str):
+    def from_string(cls, emp_str: str):
         """Parse employee data out of a string."""
         first, last, pay = emp_str.split("-")
-        return cls(first, last, pay)
+        return cls(first, last, int(pay))
 
     @staticmethod
-    def weekday(day):
+    def weekday(day: datetime.date) -> bool:
         """Determine if a given date is a weekday."""
         return day.weekday() != 5 and day.weekday() != 6
 
@@ -81,45 +86,46 @@ class Developer(Employee):
 
     raise_amount = 0.10
 
-    def __init__(self, first, last, pay, lang):
+    def __init__(self, first: Optional[str], last: Optional[str], pay: int, lang: str):
         """Set employee attributes for the Developer subclass."""
         super().__init__(first, last, pay)
         self.lang = lang
 
     @classmethod
-    def from_string(cls, emp_str):
+    def from_string(cls, emp_str: str):
         """Parse developer data out of a string."""
-        # TODO: Can I inherit the Employee.from_string classmethod?
         first, last, pay, lang = emp_str.split("-")
-        return cls(first, last, pay, lang)
+        return cls(first, last, int(pay), lang)
 
 
 class Manager(Employee):
     """Class constructor for managers that inherits the Employee class."""
 
-    def __init__(self, first, last, pay, employees=None):
+    def __init__(
+        self, first: Optional[str], last: Optional[str], pay: int, employees=None
+    ):
         """Set employee attributes for the Manager subclass."""
         super().__init__(first, last, pay)
         self.employees = [] if employees is None else employees
 
-    def add_emp(self, emp):
+    def add_emp(self, emp: Employee) -> None:
         """Add an employee to the manager's employees list."""
         if emp not in self.employees:
             self.employees.append(emp)
 
-    def remove_emp(self, emp):
+    def remove_emp(self, emp: Employee) -> None:
         """Remove an employee from the manager's employees list."""
         if emp in self.employees:
             self.employees.remove(emp)
 
-    def print_emps(self):
+    def print_emps(self) -> None:
         """Print the list of the manager's employees."""
         print(f"People managed by {self.fullname}:")
         for emp in self.employees:
             print(f"-> {emp.fullname}")
 
 
-def class_example():
+def class_example() -> None:
     """Instantiate the classes from the module with example information.
     ---
     """
