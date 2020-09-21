@@ -103,6 +103,14 @@ license = ["editdistance"]
 
 [[package]]
 category = "dev"
+description = "iniconfig: brain-dead simple config-ini parsing"
+name = "iniconfig"
+optional = false
+python-versions = "*"
+version = "1.0.1"
+
+[[package]]
+category = "dev"
 description = "A Python utility / library to sort Python imports."
 name = "isort"
 optional = false
@@ -119,7 +127,7 @@ description = "More routines for operating on iterables, beyond itertools"
 name = "more-itertools"
 optional = false
 python-versions = ">=3.5"
-version = "8.4.0"
+version = "8.5.0"
 
 [[package]]
 category = "dev"
@@ -222,20 +230,21 @@ description = "pytest: simple powerful testing with Python"
 name = "pytest"
 optional = false
 python-versions = ">=3.5"
-version = "5.4.3"
+version = "6.0.2"
 
 [package.dependencies]
 atomicwrites = ">=1.0"
 attrs = ">=17.4.0"
 colorama = "*"
+iniconfig = "*"
 more-itertools = ">=4.0.0"
 packaging = "*"
 pluggy = ">=0.12,<1.0"
-py = ">=1.5.0"
-wcwidth = "*"
+py = ">=1.8.2"
+toml = "*"
 
 [package.extras]
-checkqa-mypy = ["mypy (v0.761)"]
+checkqa_mypy = ["mypy (0.780)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
@@ -304,16 +313,9 @@ six = ">=1.9.0,<2"
 docs = ["sphinx (>=3)", "sphinx-argparse (>=0.2.5)", "sphinx-rtd-theme (>=0.4.3)", "towncrier (>=19.9.0rc1)", "proselint (>=0.10.2)"]
 testing = ["pytest (>=4)", "coverage (>=5)", "coverage-enable-subprocess (>=1)", "pytest-xdist (>=1.31.0)", "pytest-mock (>=2)", "pytest-env (>=0.6.2)", "pytest-randomly (>=1)", "pytest-timeout (>=1)", "pytest-freezegun (>=0.4.1)", "flaky (>=3)", "packaging (>=20.0)", "xonsh (>=0.9.16)"]
 
-[[package]]
-category = "dev"
-description = "Measures the displayed width of unicode strings in a terminal"
-name = "wcwidth"
-optional = false
-python-versions = "*"
-version = "0.2.5"
-
 [metadata]
-content-hash = "10f6c0ba4837fe503998b58c850f1b770e0ca918ecd844398562cce6c4cf5218"
+content-hash = "d92552980746b43bf9c89371c12e9dd51365dcd4e6937d24be72a7434c88f732"
+lock-version = "1.0"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -357,13 +359,17 @@ identify = [
     {file = "identify-1.4.24-py2.py3-none-any.whl", hash = "sha256:5519601b70c831011fb425ffd214101df7639ba3980f24dc283f7675b19127b3"},
     {file = "identify-1.4.24.tar.gz", hash = "sha256:06b4373546ae55eaaefdac54f006951dbd968fe2912846c00e565b09cfaed101"},
 ]
+iniconfig = [
+    {file = "iniconfig-1.0.1-py3-none-any.whl", hash = "sha256:80cf40c597eb564e86346103f609d74efce0f6b4d4f30ec8ce9e2c26411ba437"},
+    {file = "iniconfig-1.0.1.tar.gz", hash = "sha256:e5f92f89355a67de0595932a6c6c02ab4afddc6fcdc0bfc5becd0d60884d3f69"},
+]
 isort = [
     {file = "isort-5.1.4-py3-none-any.whl", hash = "sha256:ae3007f72a2e9da36febd3454d8be4b175d6ca17eb765841d5fe3d038aede79d"},
     {file = "isort-5.1.4.tar.gz", hash = "sha256:145072eedc4927cc9c1f9478f2d83b2fc1e6469df4129c02ef4e8c742207a46c"},
 ]
 more-itertools = [
-    {file = "more-itertools-8.4.0.tar.gz", hash = "sha256:68c70cc7167bdf5c7c9d8f6954a7837089c6a36bf565383919bb595efb8a17e5"},
-    {file = "more_itertools-8.4.0-py3-none-any.whl", hash = "sha256:b78134b2063dd214000685165d81c154522c3ee0a1c0d4d113c80361c234c5a2"},
+    {file = "more-itertools-8.5.0.tar.gz", hash = "sha256:6f83822ae94818eae2612063a5101a7311e68ae8002005b5e05f03fd74a86a20"},
+    {file = "more_itertools-8.5.0-py3-none-any.whl", hash = "sha256:9b30f12df9393f0d28af9210ff8efe48d10c94f73e5daf886f10c4b0b0b4f03c"},
 ]
 mypy = [
     {file = "mypy-0.782-cp35-cp35m-macosx_10_6_x86_64.whl", hash = "sha256:2c6cde8aa3426c1682d35190b59b71f661237d74b053822ea3d748e2c9578a7c"},
@@ -413,8 +419,8 @@ pyparsing = [
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
 pytest = [
-    {file = "pytest-5.4.3-py3-none-any.whl", hash = "sha256:5c0db86b698e8f170ba4582a492248919255fcd4c79b1ee64ace34301fb589a1"},
-    {file = "pytest-5.4.3.tar.gz", hash = "sha256:7979331bfcba207414f5e1263b5a0f8f521d0f457318836a7355531ed1a4c7d8"},
+    {file = "pytest-6.0.2-py3-none-any.whl", hash = "sha256:0e37f61339c4578776e090c3b8f6b16ce4db333889d65d0efb305243ec544b40"},
+    {file = "pytest-6.0.2.tar.gz", hash = "sha256:c8f57c2a30983f469bf03e68cdfa74dc474ce56b8f280ddcb080dfd91df01043"},
 ]
 pyyaml = [
     {file = "PyYAML-5.3.1-cp27-cp27m-win32.whl", hash = "sha256:74809a57b329d6cc0fdccee6318f44b9b8649961fa73144a98735b0aaf029f1f"},
@@ -491,8 +497,4 @@ typing-extensions = [
 virtualenv = [
     {file = "virtualenv-20.0.27-py2.py3-none-any.whl", hash = "sha256:c51f1ba727d1614ce8fd62457748b469fbedfdab2c7e5dd480c9ae3fbe1233f1"},
     {file = "virtualenv-20.0.27.tar.gz", hash = "sha256:26cdd725a57fef4c7c22060dba4647ebd8ca377e30d1c1cf547b30a0b79c43b4"},
-]
-wcwidth = [
-    {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
-    {file = "wcwidth-0.2.5.tar.gz", hash = "sha256:c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"},
 ]
