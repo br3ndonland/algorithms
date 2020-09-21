@@ -18,7 +18,7 @@ python = "^3.8"
 black = { version = "*", allow-prereleases = true }
 isort = "^5"
 mypy = "*"
-pre-commit = "^2.6"
+pre-commit = "^2.7"
 pytest = "^6.0"
 
 [tool.pytest.ini_options]
