@@ -19,7 +19,7 @@ black = { version = "*", allow-prereleases = true }
 isort = "^5"
 mypy = "*"
 pre-commit = "^2.7"
-pytest = "^6.0"
+pytest = "^6.1"
 
 [tool.pytest.ini_options]
 addopts = "-q"
