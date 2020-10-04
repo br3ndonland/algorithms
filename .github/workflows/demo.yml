@@ -20,15 +20,15 @@ jobs:
         run: echo 'Hello World, from ${{ env.APP_NAME }}'
       - name: Set build environment based on Git branch name
         if: github.ref == 'refs/heads/demo' || contains(env.APP_NAME, 'demo')
-        run: echo ::set-env name=BUILD_ENV::"demo"
+        run: echo "BUILD_ENV=demo" >> $GITHUB_ENV
       - name: Use the GitHub Actions format function to provide some details about Spam
         run: |
-          echo ::set-env name=SPAM_STRING::${{ format(
+          echo "SPAM_STRING=${{ format(
             'Spam is short for {0} and is made from {1} by {2}',
             'spiced ham',
             'pork shoulder',
             'Hormel'
-          ) }}
+          ) }}" >> $GITHUB_ENV
       - name: Run a multi-line shell script block
         run: |
           echo "
