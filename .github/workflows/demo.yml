@@ -18,6 +18,17 @@ jobs:
         run: echo 'Workspace directory is ${{ github.workspace }}'
       - name: Run a simple echo command with a pre-set environment variable
         run: echo 'Hello World, from ${{ env.APP_NAME }}'
+      - name: Set an environment variable using a multi-line string
+        run: |
+          echo "MULTI_LINE_STRING<<EOF" >> $GITHUB_ENV
+          echo "
+            Hello World!
+            Here's a
+            multi-line string.
+          " >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+      - name: Check the environment variable from the previous step
+        run: echo $MULTI_LINE_STRING
       - name: Set build environment based on Git branch name
         if: github.ref == 'refs/heads/demo' || contains(env.APP_NAME, 'demo')
         run: echo "BUILD_ENV=demo" >> $GITHUB_ENV
