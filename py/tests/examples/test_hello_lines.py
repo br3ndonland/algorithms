@@ -1,4 +1,4 @@
-from algorythms.examples import hello_lines  # type: ignore
+from algorythms.examples import hello_lines
 
 
 def test_hello_lines() -> None:

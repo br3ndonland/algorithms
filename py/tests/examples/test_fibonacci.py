@@ -1,6 +1,6 @@
-import pytest  # type: ignore
+import pytest
 
-from algorythms.examples import fibonacci  # type: ignore
+from algorythms.examples import fibonacci
 
 
 @pytest.mark.parametrize(
