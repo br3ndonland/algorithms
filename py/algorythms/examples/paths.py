@@ -4,13 +4,17 @@ from typing import List
 
 
 def get_modules(directory: Path = Path(__file__).parent) -> List[str]:
-    """Get a recursive list of Python modules in a directory, excluding `__init__.py`.
+    """Get a list of Python modules in a directory, excluding `__init__.py`.
     ---
     https://docs.python.org/3/library/pathlib.html
 
-    TODO: glob is not matching all the modules in this directory
+    To recurse into subdirectories, try `directory.glob("**/*.py")`.
     """
-    return [Path(file).stem for file in directory.glob("**/*[!__init__].py")]
+    return [
+        Path(file).stem
+        for file in directory.iterdir()
+        if Path(file).suffix == ".py" and Path(file).stem != "__init__"
+    ]
 
 
 def import_modules(modules: List[str]) -> List:
@@ -25,5 +29,5 @@ def import_modules(modules: List[str]) -> List:
 
 if __name__ == "__main__":
     modules = get_modules()
-    print(sorted(modules))
     print(f"{len(import_modules(modules))} modules imported")
+    print(f"Total of {len(list(Path(__file__).parent.iterdir()))} in this directory.")
