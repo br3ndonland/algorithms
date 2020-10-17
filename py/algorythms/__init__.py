@@ -4,20 +4,21 @@ algorythms
 Miscellaneous curiosities from the world of computer programming
 https://github.com/br3ndonland/algorithms
 """
-from importlib.metadata import version
+from pathlib import Path
+from typing import Any, Dict
+
+from pydantic import BaseSettings
+
+from algorythms.examples.parse_pyproject_toml import load_pyproject
 
 
-def package_version() -> str:
-    """
-    Calculate version number based on pyproject.toml.
-    ---
-    During `poetry install`, Poetry installs the project as if it were a package itself.
-    You can then pull from the package metadata.
+class Settings(BaseSettings):
+    """Instantiate a Pydantic Settings model."""
 
-    See [poetry#1036](https://github.com/python-poetry/poetry/issues/1036) and
-    [poetry#144](https://github.com/python-poetry/poetry/issues/144) for more info.
-    """
-    return version(__package__)
+    pyproject: Dict[str, Any] = load_pyproject(pyproject_path=Path("pyproject.toml"))
+    title: str = str(pyproject["tool"]["poetry"]["name"])
+    description: str = str(pyproject["tool"]["poetry"]["description"])
+    version: str = str(pyproject["tool"]["poetry"]["version"])
 
 
-__version__ = package_version()
+settings = Settings()
