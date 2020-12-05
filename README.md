@@ -9,7 +9,7 @@ Brendon Smith ([br3ndonland](https://github.com/br3ndonland/))
 
 ## Description
 
-This repository contains solutions to common computer science algorithm problems in Python and JavaScript. It's also a useful source of default tooling for my projects.
+This repository contains solutions to common computer science algorithm problems in Python and JavaScript. It was generated from [br3ndonland/template-python](https://github.com/br3ndonland/template-python), a useful source of default tooling for my projects.
 
 ## Directory structure
 
