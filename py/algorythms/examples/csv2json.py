@@ -9,9 +9,8 @@ def input_path() -> str:
     path = input("Please input the path to a CSV file: ")
     if not os.path.isfile(path):
         return f"Not a valid file path: {path}"
-    else:
-        print(f"Valid file path: {path}")
-        return path
+    print(f"Valid file path: {path}")
+    return path
 
 
 def output_json(path: str) -> str:
