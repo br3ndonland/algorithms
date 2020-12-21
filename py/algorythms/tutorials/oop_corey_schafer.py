@@ -81,7 +81,7 @@ class Employee:
     @staticmethod
     def weekday(day: datetime.date) -> bool:
         """Determine if a given date is a weekday."""
-        return day.weekday() != 5 and day.weekday() != 6
+        return day.weekday() not in [5, 6]
 
 
 class Developer(Employee):
