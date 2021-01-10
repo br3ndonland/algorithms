@@ -2,6 +2,14 @@
 
 https://learn.hashicorp.com/collections/terraform/aws-get-started
 
+## Definitions
+
+As explained in the [Terraform core workflow guide](https://www.terraform.io/guides/core-workflow.html), the [Terraform CLI docs](https://www.terraform.io/docs/cli/run/index.html) and the [Terraform glossary](https://www.terraform.io/docs/glossary.html):
+
+- A declarative Terraform file is called a **[configuration](https://www.terraform.io/docs/configuration/index.html)**.
+- After configuration, a [`terraform plan`](https://www.terraform.io/docs/commands/plan.html) can optionally be created.
+- Then, [`terraform apply`](https://www.terraform.io/docs/commands/apply.html) will create the resources declared in the configuration and plan.
+
 ## Lessons
 
 ### Introduction to Infrastructure as Code with Terraform
@@ -85,7 +93,7 @@ resource "docker_container" "nginx" {
 
 > Authenticate to AWS, and create an EC2 instance under the AWS free tier. You will write and validate Terraform configuration, initialize a configuration directory, and plan and apply a configuration to create infrastructure.
 
-[Configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) with `aws configure`.
+[Configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) with `aws configure`, then create an HCL file _example.tf_.
 
 ```sh
 mkdir terraform-aws-demo && cd $_
