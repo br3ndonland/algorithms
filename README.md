@@ -13,7 +13,7 @@ This repository contains solutions to common computer science algorithm problems
 
 ## Directory structure
 
-This project contains both Python and JavaScript code. Each language is separated into its own sub-directory: _js_ for JavaScript and _py_ for Python. The directory structure within each language's sub-directory follows the conventions for that language.
+This project contains JavaScript, Python, and Terraform code. Each language is separated into its own sub-directory: _js_ for JavaScript, _py_ for Python, and _terraform_ for Terraform. The directory structure within each language's sub-directory follows the conventions for that language.
 
 JavaScript applications typically use _src_ for source code and _tests_ for tests.
 
