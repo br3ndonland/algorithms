@@ -141,7 +141,7 @@ Destroy with `terraform destroy`.
 >
 > You now have enough Terraform knowledge to create useful configurations, but we're still hard-coding access keys, AMIs, etc. To become truly shareable and version controlled, we need to parameterize the configurations. This page introduces input variables as a way to do this.
 
-Add a file _variables.tf_.
+Add a file _variables.tf_, or add variables directly to _example.tf_.
 
 ```hcl
 variable "region" {
@@ -165,8 +165,6 @@ resource "aws_instance" "example" {
 ```
 
 Maps can also be set up.
-
-_variables.tf_
 
 ```hcl
 variable "region" {
@@ -197,19 +195,12 @@ resource "aws_instance" "example" {
 
 > Declare output variables to display the public IP address of an EC2 instance. Display all outputs and query specific outputs. Define what data stored in Terraform state is relevant to the operator or end user.
 
-_example.tf_
-
 ```hcl
 resource "aws_eip" "ip" {
   vpc      = true
   instance = aws_instance.example.id
 }
 
-```
-
-_variables.tf_
-
-```hcl
 output "ip" {
   value = aws_eip.ip.public_ip
 }
