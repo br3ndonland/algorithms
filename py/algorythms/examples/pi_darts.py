@@ -2,7 +2,7 @@ import math as m
 import random as r
 
 
-def pi(total: int) -> float:
+def estimate_pi(total: int) -> float:
     """
     Estimate Pi by throwing darts
     ---
@@ -29,4 +29,4 @@ def pi(total: int) -> float:
 
 
 if __name__ == "__main__":
-    print(pi(10000))
+    print(estimate_pi(10000))
