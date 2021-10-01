@@ -1,16 +1,17 @@
 """
 Corey Schafer Python tutorials
 ------------------------------
+
 Python Decorators: https://www.youtube.com/watch?v=FsAPt_9Bf3U
 """
 import logging
 import time
 from functools import wraps
-from typing import Any, Union
+from typing import Any, Callable, Union
 
 
-def decorator_function(original_function: Any) -> Any:
-    def wrapper_function(*args: tuple, **kwargs: dict) -> Any:
+def decorator_function(original_function: Callable) -> Callable:
+    def wrapper_function(*args: Union[int, str], **kwargs: Any) -> Callable:
         print(f"wrapper executed this before {original_function.__name__}")
         return original_function(*args, **kwargs)
 
@@ -23,35 +24,35 @@ def display_info(name: str, age: int) -> str:
 
 
 class DecoratorClass:
-    def __init__(self, original_function: Any):
+    def __init__(self, original_function: Callable):
         self.original_function = original_function
 
-    def __call__(self, *args: Union[int, str, tuple], **kwargs: dict) -> Any:
+    def __call__(self, *args: Union[int, str], **kwargs: Any) -> Callable:
         print(f"call method executed this before {self.original_function.__name__}")
         return self.original_function(*args, **kwargs)
 
 
 @DecoratorClass
-def display_class(*args: tuple, **kwargs: dict) -> str:
+def display_class(*args: Union[int, str], **kwargs: Any) -> str:
     return f"display class decorator ran with arguments {args}"
 
 
-def my_logger(original_function: Any) -> Any:
+def my_logger(original_function: Callable) -> Callable:
     logging.basicConfig(
         filename=f"{original_function.__name__}.log", level=logging.INFO
     )
 
     @wraps(original_function)
-    def wrapper(*args: tuple, **kwargs: dict) -> Any:
+    def wrapper(*args: Union[int, str], **kwargs: Any) -> Callable:
         logging.info(f"Ran with args: {args}, and kwargs: {kwargs}")
         return original_function(*args, **kwargs)
 
     return wrapper
 
 
-def my_timer(original_function: Any) -> Any:
+def my_timer(original_function: Callable) -> Callable:
     @wraps(original_function)
-    def wrapper(*args: tuple, **kwargs: dict) -> Any:
+    def wrapper(*args: Union[int, str], **kwargs: Any) -> Callable:
         t1 = time.time()
         result = original_function(*args, **kwargs)
         t2 = time.time() - t1
