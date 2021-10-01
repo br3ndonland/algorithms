@@ -1,8 +1,9 @@
 """
 Real Python: Python's instance, class, and static methods demystified
 ---------------------------------------------------------------------
+
 https://realpython.com/instance-class-and-static-methods-demystified/
-I was asked about decorators in a job interview. This tutorial was helpful.
+
 """
 import math
 from typing import List, Tuple, Type, TypeVar
