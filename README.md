@@ -13,7 +13,7 @@ This repository contains solutions to common computer science algorithm problems
 
 ## Directory structure
 
-This project contains JavaScript, Python, and Terraform code. Each language is separated into its own sub-directory: _js_ for JavaScript, _py_ for Python, and _terraform_ for Terraform. The directory structure within each language's sub-directory follows the conventions for that language.
+This project contains JavaScript and Python code. Each language is separated into its own sub-directory: _js_ for JavaScript, and _py_ for Python. The directory structure within each language's sub-directory follows the conventions for that language.
 
 JavaScript applications typically use _src_ for source code and _tests_ for tests.
 
@@ -24,6 +24,8 @@ The convention in the Python community is to put application code either in _pac
 - [Pandas](https://github.com/pandas-dev/pandas) uses _pandas/pandas_
 - [Requests](https://github.com/psf/requests) uses _requests/requests_
 - The Python dependency management and packaging tool [Poetry](https://python-poetry.org/) supports either _appname_ or _src/appname_.
+
+This repo previously also contained Terraform configurations, which have been moved to [br3ndonland/terraform-examples](https://github.com/br3ndonland/terraform-examples).
 
 ## Further information
 

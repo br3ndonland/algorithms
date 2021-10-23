@@ -44,8 +44,3 @@ jobs:
         run: poetry install --no-interaction
       - name: Run pre-commit hooks
         run: pre-commit run --all-files
-  terraform:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: hashicorp/setup-terraform@v1
-      - run: terraform fmt -check -recursive
