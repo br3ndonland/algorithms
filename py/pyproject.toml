@@ -15,7 +15,7 @@ include = ["algorythms/py.typed"]
 [tool.poetry.dependencies]
 python = "^3.8"
 pandas = "^1.1"
-pydantic = "^1.6"
+pydantic = "^1.7"
 toml = "^0.10"
 
 [tool.poetry.dev-dependencies]
