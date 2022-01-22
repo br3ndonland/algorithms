@@ -2,6 +2,15 @@
 profile = "black"
 src_paths = ["algorythms", "tests"]
 
+[tool.mypy]
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+explicit_package_bases = true
+files = ["**/*.py"]
+namespace_packages = true
+plugins = "pydantic.mypy"
+show_error_codes = true
+
 [tool.poetry]
 name = "algorythms"
 version = "0.1.0"
