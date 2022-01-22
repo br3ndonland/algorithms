@@ -16,7 +16,7 @@ include = ["algorythms/py.typed"]
 python = "^3.8"
 pandas = "^1.1"
 pydantic = "^1.6"
-toml = "^0.10"
+tomli = "^2"
 
 [tool.poetry.dev-dependencies]
 black = { version = "*", allow-prereleases = true }
