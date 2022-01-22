@@ -57,7 +57,7 @@ jobs:
           echo "Did you know that $SPAM_STRING?"
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: "3.10"
       - name: Run a multi-line Python script block
         shell: python
         run: |
@@ -79,7 +79,7 @@ jobs:
     strategy:
       matrix:
         os: [macOS-latest, ubuntu-latest, windows-latest]
-        python-version: [3.6, 3.7, 3.8]
+        python-version: ["3.8", "3.9", "3.10"]
         silly-word: [foo, bar, baz]
     steps:
       - uses: actions/checkout@v2
